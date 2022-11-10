@@ -6,12 +6,12 @@ import 'package:http/http.dart';
 
 
 class APIService{
-  String endpoint = "https://restcountries.com/v3.1/all";
+  // String endpoint = "https://restcountries.com/v3.1/all";
 
   Future<List<CountryModel>> getCountries() async{
-    Response response = await get(Uri.parse(endpoint));
+    Response response = await get(Uri.parse("https://restcountries.com/v3.1/all"));
     if (response.statusCode==200){
-      final result = jsonDecode(response.body) as List<Map<String, CountryModel>>;
+      final List result = jsonDecode(response.body) ;
       return result.map((e) => CountryModel.fromJson(e)).toList();
     }else {
       throw Exception(response.reasonPhrase);

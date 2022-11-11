@@ -1,14 +1,18 @@
 import 'package:explore/constants/dart_provider.dart';
 import 'package:explore/models/country_model.dart';
+import 'package:explore/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context, ref) {
     final _data = ref.watch(countryDataProvider);
+    // List<CountryModel> countryList = map((e) =>e).toList();
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFFFFFFF),
@@ -69,23 +73,36 @@ class HomePage extends ConsumerWidget {
                 child: _data.when(
                     data: (_data){
                       List<CountryModel> countryList = _data.map((e) =>e).toList();
+                      var n = countryList;
+                      n.sort((a,b)=>a.name!.common.toString().compareTo(b.name!.common.toString()));
+                      // n.sort((a,b)=>a.toString().compareTo(b.toString()));
+                      print(n);
                       return ListView.builder(
                         // shrinkWrap: true,
-                      itemCount: countryList.length,
+                      itemCount: n.length,
                       itemBuilder: (_,index){
-                        return Card(
-                          color: Colors.transparent,
-                          elevation: 0.0,
-                          child: ListTile(
-                            leading: Container(
-                              height: 40.0,width: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                                image: DecorationImage(fit:BoxFit.fill,image: NetworkImage(countryList[index].flags!.png.toString()))
+                        return InkWell(
+                          onTap: ()=> Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context)=> DetailsScreen(
+                                      e: countryList[index]))),
+                          child: Card(
+                            color: Colors.transparent,
+                            elevation: 0.0,
+                            child: ListTile(
+                              leading: Container(
+                                height: 40.0,width: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  image: DecorationImage(
+                                      fit:BoxFit.fill,
+                                      image: NetworkImage(countryList[index] .flags!.png.toString()))
+                                ),
                               ),
+                              title: Text(n[index].name!.common.toString()),
+                              subtitle: Text(n[index].capital!.isEmpty?'':
+                              n[index].capital![0].toString()),
                             ),
-                            title: Text(countryList[index].name!.official.toString()),
-                            subtitle: Text(countryList[index].capital!.toString()),
                           ),
                         );
                       });

@@ -1,16 +1,24 @@
-# explore
+# EXPLORE
+Explore is a mobile application that shows the countries of the world and details of the countries.
 
-A new Flutter project.
 
-## Getting Started
+## Code Description
+The codebase of this app is a simple flutter architecture where we are consuming data from an API.
 
-This project is a starting point for a Flutter application.
+All the screens are individual dart files all in a screens folder.
 
-A few resources to get you started if this is your first Flutter project:
+The model class, services, constants are all saved in individual dart files.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The fonts used are saved in a fonts folder in the project directory.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Libraries Used
+1) Riverpod for state management
+2) http for getting response from the API
+3) carousel Slider for displaying images in a slider view on the details screen
+
+# APK Link
+soon to be updated
+
+# Appetize link
+soon to be updated

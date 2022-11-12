@@ -21,4 +21,4 @@ The fonts used are saved in a fonts folder in the project directory.
 soon to be updated
 
 # Appetize link
-soon to be updated
+[Appetize link](https://appetize.io/app/elap674chofnjghffy5eg2rz3m)

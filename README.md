@@ -18,7 +18,7 @@ The fonts used are saved in a fonts folder in the project directory.
 3) carousel Slider for displaying images in a slider view on the details screen
 
 # APK Link
-soon to be updated
+[APK link](https://drive.google.com/file/d/1_ZHsdIa17VBOiGbfu_uyQBVM9mR_w5Hq/view?usp=sharing)
 
 # Appetize link
 [Appetize link](https://appetize.io/app/elap674chofnjghffy5eg2rz3m)
